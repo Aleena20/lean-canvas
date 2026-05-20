@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>August Home — Lean Canvas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #EEF2F8;
+    font-family: 'Crimson Text', Georgia, serif;
+    padding: 32px;
+    min-height: 100vh;
+    color: #1C2B4A;
+  }
+
+  .page {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: #1C2B4A;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    border-bottom: 4px solid #2E5FA3;
+  }
+  .header-top {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #4A7FD4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .header p {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+  }
+
+  /* ── GRID ── */
+  .grid-top {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .grid-bot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  /* ── CELL ── */
+  .cell {
+    background: #ffffff;
+    border: 1px solid #B8CCE8;
+    border-top: 4px solid #1C2B4A;
+    padding: 16px;
+    min-height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cell-uvp {
+    background: #1C2B4A;
+    border: 1px solid #2E5FA3;
+    border-top: 4px solid #4A7FD4;
+  }
+
+  /* watermark number */
+  .watermark {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(180, 200, 230, 0.25);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .watermark-inv { color: rgba(255,255,255,0.04); }
+
+  /* slibrary tag */
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #4A7FD4;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .tag-inv { color: rgba(255,255,255,0.45); }
+
+  /* cell title */
+  .cell-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #1C2B4A;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #B8CCE8;
+    padding-bottom: 8px;
+  }
+  .cell-title-inv {
+    color: #ffffff;
+    border-bottom-color: rgba(255,255,255,0.15);
+  }
+
+  /* sub-heading */
+  .sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #2E5FA3;
+    text-transform: uppercase;
+    margin: 8px 0 5px;
+  }
+  .sub-inv { color: rgba(255,255,255,0.5); }
+
+  /* bullet item */
+  .item {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 5px;
+    align-items: flex-start;
+  }
+  .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #2E5FA3;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .dot-inv { background: rgba(255,255,255,0.55); }
+  .item-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #1C2B4A;
+  }
+  .item-text-inv { color: rgba(255,255,255,0.88); }
+
+  /* ── FOOTER STRIP ── */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .footer-cell {
+    background: #ffffff;
+    border: 1px solid #B8CCE8;
+    border-left: 4px solid #1C2B4A;
+    padding: 14px 16px;
+  }
+  .footer-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: #2E5FA3;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .footer-val {
+    font-family: 'Crimson Text', serif;
+    font-size: 13px;
+    color: #1C2B4A;
+    line-height: 1.5;
+  }
+
+  /* ── REFERENCE ── */
+  .ref {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: #4A7FD4;
+    text-align: center;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+    padding-bottom: 8px;
+  }
+
+  @media print {
+    body { background: #fff; padding: 16px; }
+    .cell { min-height: 180px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">MASCO302 &middot; Sprint 2 &middot; Lean Canvas &middot; Maurya (2022) &middot; v1.0 &mdash; hypothesis stage, not yet validated</div>
+    <h1>August Home &mdash; Smart Access for Short-Term Rental Hosts</h1>
+    <p>Smart Access Innovators &middot; EU Business School Munich &middot; Term III 2025&ndash;26 &middot; Customer segment: multi-property Airbnb / Booking.com hosts in the EU<br>
+    Slibrary references: 08 (Lean Startup Core) &middot; 14 (Value Proposition) &middot; 16 (Customer Segments &amp; GTM)</p>
+  </div>
+
+  <!-- TOP ROW: 5 columns -->
+  <div class="grid-top">
+
+    <!-- 1. PROBLEM -->
+    <div class="cell">
+      <div class="tag">Slibrary 08</div>
+      <div class="cell-title">1. Problem</div>
+      <div class="sub">Top 3 pains (to be validated)</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Hosts spend 20&ndash;40 min per booking on manual guest access coordination &mdash; WhatsApp codes, lockbox PINs, physical key handovers</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">No existing smart lock (Ring, Schlage, August) auto-generates and revokes access codes in sync with Airbnb / Booking.com calendars</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">GDPR friction: platforms requiring guest account creation or biometric data to grant access &mdash; guests refuse, check-in fails</div></div>
+      <div class="sub">Existing alternatives</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Physical lockboxes &mdash; insecure, no audit trail</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Manual smart lock codes &mdash; host-managed, not automated</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">PMS tools (Guesty, Hospitable) &mdash; complex, expensive, not built for solo hosts</div></div>
+      <div class="watermark">1</div>
+    </div>
+
+    <!-- 2. SOLUTION -->
+    <div class="cell">
+      <div class="tag">Slibrary 08</div>
+      <div class="cell-title">2. Solution</div>
+      <div class="sub">MVP features</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Auto-generate time-limited digital key when booking confirmed on Airbnb / Booking.com &mdash; auto-revoke at checkout with zero manual steps</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Single mobile dashboard to manage guests, cleaners, and maintenance across all properties with individual time windows</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">GDPR-compliant access audit log exportable for EU night-cap enforcement (Vienna 90d, Barcelona 30d, Berlin 3mo)</div></div>
+      <div class="watermark">2</div>
+    </div>
+
+    <!-- 3. UVP — NAVY -->
+    <div class="cell cell-uvp">
+      <div class="tag tag-inv">Slibrary 14</div>
+      <div class="cell-title cell-title-inv">3. Unique value proposition</div>
+      <div class="sub sub-inv">Single clear message</div>
+      <div class="item"><div class="dot dot-inv"></div><div class="item-text item-text-inv">Your Airbnb calendar controls your locks &mdash; automatically, compliantly, without a locksmith.</div></div>
+      <div class="sub sub-inv">High-level concept</div>
+      <div class="item"><div class="dot dot-inv"></div><div class="item-text item-text-inv">The only smart access platform built for the EU regulatory environment &mdash; GDPR-native, night-cap audit-ready, retrofit-first.</div></div>
+      <div class="watermark watermark-inv">3</div>
+    </div>
+
+    <!-- 4. UNFAIR ADVANTAGE -->
+    <div class="cell">
+      <div class="tag">Slibrary 14</div>
+      <div class="cell-title">4. Unfair advantage</div>
+      <div class="sub">Cannot be easily copied or bought</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Existing Alexa, Google Home, and HomeKit integrations &mdash; platform relationships competitors must rebuild from zero</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Matter-native hardware base &mdash; interoperates with the entire smart home stack without proprietary lock-in</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">EU compliance architecture: GDPR-native design and night-cap audit log are not on Ring or Schlage product roadmaps</div></div>
+      <div class="watermark">4</div>
+    </div>
+
+    <!-- 5. CUSTOMER SEGMENTS -->
+    <div class="cell">
+      <div class="tag">Slibrary 16</div>
+      <div class="cell-title">5. Customer segments</div>
+      <div class="sub">Early adopter beachhead</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Multi-property STR hosts &mdash; 2&ndash;5 listings on Airbnb / Booking.com in EU cities with active night-cap limits</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Operationally overwhelmed, technically comfortable, managing cleaners and maintenance remotely</div></div>
+      <div class="sub">Mainstream target (post-chasm)</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Casual STR hosts &mdash; 1 property, motivated by guest experience ratings and contactless check-in</div></div>
+      <div class="watermark">5</div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM ROW: 4 columns -->
+  <div class="grid-bot">
+
+    <!-- 8. COST STRUCTURE -->
+    <div class="cell">
+      <div class="tag">Slibrary 08</div>
+      <div class="cell-title">8. Cost structure</div>
+      <div class="sub">Fixed costs</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Product and engineering: booking-platform sync API, mobile dashboard, GDPR compliance architecture</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Customer success and onboarding for early STR host cohort</div></div>
+      <div class="sub">Variable costs</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Cloud infrastructure: access event logging, calendar sync API calls, audit log storage per property</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Customer acquisition: STR community outreach, content marketing</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Hardware COGS: per-unit manufacturing and logistics for retrofit lock</div></div>
+      <div class="watermark">8</div>
+    </div>
+
+    <!-- 9. KEY METRICS -->
+    <div class="cell">
+      <div class="tag">Slibrary 08</div>
+      <div class="cell-title">9. Key metrics</div>
+      <div class="sub">Innovation accounting</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Activation: % of users completing first automated booking sync within 7 days of setup</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Retention: monthly churn per property subscription &mdash; target &lt;5%</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Revenue: MRR per cohort; LTV:CAC ratio &mdash; target &gt;3:1</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Referral: new host sign-ups via existing host recommendation &mdash; low CAC channel</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Validation: % of interviewed hosts confirming access coordination as top-3 pain point</div></div>
+      <div class="watermark">9</div>
+    </div>
+
+    <!-- 7. REVENUE STREAMS -->
+    <div class="cell">
+      <div class="tag">Slibrary 08</div>
+      <div class="cell-title">7. Revenue streams</div>
+      <div class="sub">Pricing model (to be validated)</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Hardware: retrofit smart lock &mdash; ~&euro;149&ndash;&euro;199 per door, one-time purchase</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">STR Workflow tier: &euro;9.99/property/month &mdash; booking sync, multi-property dashboard, audit log</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Pro tier: &euro;19.99/property/month &mdash; adds analytics, cleaner scheduling, priority support</div></div>
+      <div class="sub">LTV assumption</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Target &euro;720/property over 36 months at &euro;9.99/mo &mdash; to be tested against WTP interview data</div></div>
+      <div class="watermark">7</div>
+    </div>
+
+    <!-- 6. CHANNELS -->
+    <div class="cell">
+      <div class="tag">Slibrary 16</div>
+      <div class="cell-title">6. Channels</div>
+      <div class="sub">Path to customers</div>
+      <div class="item"><div class="dot"></div><div class="item-text">Discovery: Airbnb host Facebook Groups, Reddit r/airbnb, Booking.com partner forums</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Conversion: August Home app ecosystem and existing smart lock user base &mdash; warm audience</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Retention: in-app booking-calendar sync stickiness; quarterly compliance-log reports</div></div>
+      <div class="item"><div class="dot"></div><div class="item-text">Referral: host-to-host recommendation within STR communities &mdash; high trust, low CAC</div></div>
+      <div class="watermark">6</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER STRIP -->
+  <div class="footer-grid">
+    <div class="footer-cell">
+      <div class="footer-label">&#9656; Pivot-or-persevere gate</div>
+      <div class="footer-val">Week 4 sprint retrospective &mdash; evidence reviewed against SMART+R objectives set in the project charter</div>
+    </div>
+    <div class="footer-cell">
+      <div class="footer-label">&#9656; Primary validation method</div>
+      <div class="footer-val">JTBD interviews &middot; Mom Test protocol &middot; minimum 8 STR hosts &middot; Weeks 3&ndash;4</div>
+    </div>
+    <div class="footer-cell">
+      <div class="footer-label">&#9656; Key assumption to test first</div>
+      <div class="footer-val">Hosts spend 20+ min per booking on manual access coordination &mdash; confirmed as top-3 operational pain point</div>
+    </div>
+  </div>
+
+  <div class="ref">
+    Maurya, A. (2022) Running Lean, 3rd edn. O'Reilly &middot; Ries, E. (2011) The Lean Startup &middot; Smart Access Innovators &middot; EU Business School Munich &middot; MASCO302 Term III 2025&ndash;26
+  </div>
+
+</div>
+</body>
+</html>
